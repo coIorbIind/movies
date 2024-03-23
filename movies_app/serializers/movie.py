@@ -10,8 +10,10 @@ class MovieCreateSerializer(serializers.ModelSerializer):
         exclude = ('id', )
 
     def to_representation(self, obj):
-        serializer = MovieGetSerializer(obj)
-        return serializer.data
+        if self.context['request'].method == 'GET':
+            serializer = MovieGetSerializer(obj)
+            return serializer.data
+        return super().to_representation(obj)
 
 
 class MovieShortSerializer(serializers.ModelSerializer):
