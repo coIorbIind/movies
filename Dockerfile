@@ -13,6 +13,8 @@ COPY ./movies ./movies
 COPY ./movies_app ./movies_app
 COPY ./.env ./.env
 COPY ./entrypoints ./entrypoints
+COPY ./pytest.ini ./pytest.ini
+COPY ./conftest.py ./conftest.py
 
 RUN chmod a+x ./entrypoints/*.sh
 CMD bash /app/entrypoints/start.sh

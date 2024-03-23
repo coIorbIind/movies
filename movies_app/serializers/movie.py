@@ -7,7 +7,7 @@ from .director import DirectorSerializer
 class MovieCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        exclude = ('id', )
+        fields = '__all__'
 
     def to_representation(self, obj):
         if self.context['request'].method == 'GET':
