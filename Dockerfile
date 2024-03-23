@@ -12,6 +12,7 @@ COPY ./manage.py ./manage.py
 COPY ./movies ./movies
 COPY ./movies_app ./movies_app
 COPY ./.env ./.env
+COPY ./entrypoints ./entrypoints
 
-RUN python /app/manage.py migrate
-CMD python manage.py runserver 0.0.0.0:8000
+RUN chmod a+x ./entrypoints/*.sh
+CMD bash /app/entrypoints/start.sh
