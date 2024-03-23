@@ -13,4 +13,5 @@ COPY ./movies ./movies
 COPY ./movies_app ./movies_app
 COPY ./.env ./.env
 
+RUN python /app/manage.py migrate
 CMD python manage.py runserver 0.0.0.0:8000
