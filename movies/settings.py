@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3-rd party
+    'rest_framework',
 
     # local
     'movies_app.apps.MoviesAppConfig'
@@ -131,3 +132,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'movies_app.utils.exceptions.custom_exception_handler'
+}
